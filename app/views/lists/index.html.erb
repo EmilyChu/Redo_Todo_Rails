@@ -1,7 +1,14 @@
 <h3> Current lists <h3>
 
-<ul>
+<table>
+  <tr>
+  <th>List Name</th>
+  </tr>
 <% @list.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
+  <tr>
+  <td><%= link_to list.name, list_path(list) %></td>
+  <td><%= link_to 'Edit List Name', edit_list_path(list) %></td>
+  <td><%= link_to 'Delete List', list_path(list), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
