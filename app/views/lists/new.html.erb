@@ -1,0 +1,14 @@
+<h2>Current TODO Lists:<h2>
+
+<br>
+
+<h3>Add additional TODO Lists here...<h3>
+<%= form_for :list, url: lists_path do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  <p>
+  <p>
+    <%= f.submit %>
+  <p>
+<% end %>
