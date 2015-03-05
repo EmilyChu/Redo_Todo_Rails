@@ -2,6 +2,42 @@
   <strong>You just created a list named:</strong>
   <%= @list.name %>
 </p>
+ 
+<h2>Current items on <%= @list.name %> </h2>
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Due Date</th>
+    <th>Completion Status</th>
+  </tr>
+<% @list.items.each do |item| %>
+  <tr>
+  <td><%= item.description %></td>
+  <td><%= item.due_date %></td>
+  <td><%= item.done %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Add an item:</h2>
+<%= form_for([@list, @list.items.build]) do |f| %>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :due_date %><br>
+    <%= f.text_field :due_date %>
+  </p>
+  <p>
+    <%= f.label :done %><br>
+    <%= f.text_field :done %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <%= link_to 'Back', lists_path %>
 <%= link_to 'Edit List Name', edit_list_path %>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'application#home'
 
-  resources :lists
+  resources :lists do
+    resources :items 
+  end
 
 end
