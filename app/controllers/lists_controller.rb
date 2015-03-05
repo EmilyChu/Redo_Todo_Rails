@@ -9,13 +9,21 @@ class ListsController < ApplicationController
   end
 
   def create
-    list_params = params[:list]
-    @list = List.create! name: list_params[:name]
+    @list = List.new(list_params)  #List.new(params.require(:name))
     if @list.save
-      redirect_to lists_path(@list)
+      redirect_to @list
     else
       render :new
-    end 
+    end
+  end
+
+  def show
+    @list = List.find(params[:id])
+  end
+
+  private
+  def list_params
+    params.require(:list).permit(:name)
   end
 
 end
