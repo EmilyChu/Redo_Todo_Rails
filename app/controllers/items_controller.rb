@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
+  def index
+    @list = List.find(params[:list_id])
+  end
+
   def create
     @list = List.find(params[:list_id])
     @item = @list.items.create! item_params
