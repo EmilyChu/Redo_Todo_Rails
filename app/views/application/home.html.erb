@@ -1,3 +1,4 @@
+<div class="container">
 <h3> Welcome to your Task Manager<h3>
 
 <%= link_to 'To Do Lists', controller: 'lists' %>
@@ -6,3 +7,15 @@
 <br>
 
 <%= link_to 'Add New List', new_list_path %>
+
+<br>
+<br>
+
+<%= form_tag('/search', method: "get") do %>
+  <%= label(:description, "Search for Items:") %>
+  <%= text_field_tag(:description) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+</div>
+

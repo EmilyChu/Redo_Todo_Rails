@@ -19,6 +19,11 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  def search
+    @phrase = params["description"]
+    @task = Item.all
+  end
+
 private
 def item_params
   params.require(:item).permit(:description, :due_date, :done)

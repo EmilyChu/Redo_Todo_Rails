@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :lists do
     resources :items 
   end
+  
+  get '/search' => 'items#search', as: 'search_item'
 
 end
