@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @list = List.all
@@ -15,6 +16,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)  #List.new(params.require(:name))
     if @list.save
+      flash[:notice]="List created successfully!"
       redirect_to @list
     else
       render :new
@@ -28,6 +30,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
+      flash[:notice]="List updated successfully!"
       redirect_to @list
     else
       render 'edit'

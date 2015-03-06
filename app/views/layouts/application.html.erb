@@ -9,6 +9,14 @@
 </head>
 <body>
 
+<% if current_user %>
+  <div class="col-sm-2"><%= current_user.email %></div>
+  <div class="col-sm-4"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+  <!-- <%= button_to "Sign Out", destroy_user_session_path, method: :delete %> -->
+<% else %>
+  <div class="col-sm-4"><%= link_to "Sign in", new_user_session_path %></div>
+<% end %>
+
 <p class="bg-success"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
