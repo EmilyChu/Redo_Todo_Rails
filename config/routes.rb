@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   
   get '/search' => 'items#search', as: 'search_item'
+  get '/random' => 'items#random', as: 'random_item'
 
 end

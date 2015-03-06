@@ -28,6 +28,11 @@ class ItemsController < ApplicationController
     @task = Item.all
   end
 
+  def random
+    @item = Item.all.sample
+    @item.description
+  end
+
 private
 def item_params
   params.require(:item).permit(:description, :due_date, :done)

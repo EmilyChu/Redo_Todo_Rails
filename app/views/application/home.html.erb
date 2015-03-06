@@ -2,20 +2,19 @@
 <h3> Welcome to your Task Manager<h3>
 
 <%= link_to 'To Do Lists', controller: 'lists' %>
-
 <br>
 <br>
-
 <%= link_to 'Add New List', new_list_path %>
-
 <br>
 <br>
-
 <%= form_tag('/search', method: "get") do %>
   <%= label(:description, "Search for Items:") %>
   <%= text_field_tag(:description) %>
   <%= submit_tag("Search") %>
 <% end %>
-
+<br>
+<h3> Or find a random task to complete...<h3>
+<br>
+<%= button_to "Random Item", random_item_path, method: "get", class: "btn btn-default" %>
 </div>
 
